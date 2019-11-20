@@ -38,9 +38,9 @@
   <link rel="stylesheet" href="/css/style.css">
   
   
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitment@0.0.3/style/default.min.css">
   
   
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
   
 </head>
 
@@ -378,7 +378,7 @@
     
   <section id="comments">
   	
-
+           
     
   </section>
 
@@ -475,24 +475,23 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-<script src="//cdn.jsdelivr.net/npm/gitment@0.0.3/dist/gitment.browser.min.js"></script>
-<script>
-var gitment = new Gitment({
-  // id默认为当前页面url，如果url后带参数或锚点，gitment要重新初始化
-  // https://github.com/imsun/gitment/issues/55
-  // 解决方案：id:window.location.pathname,或者将id设置为当前页面标题
-  id: 'Hello World', 
-  owner: 'xljsh', // 可以是你的GitHub用户名，也可以是github id
-  repo: 'xljsh.github.io',
-  oauth: {
-    client_id: '22a1ec8f2fc21e4202c8',
-    client_secret: '0c596d47b9c496b2fbd3ff58a1d6241ca387797b',
-  }
-})
-gitment.render('comments')
-</script>
+  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
+  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '22a1ec8f2fc21e4202c8',
+    clientSecret: '0c596d47b9c496b2fbd3ff58a1d6241ca387797b',
+    repo: 'xljsh.github.io',
+    owner: 'xljsh',
+    admin: ['xljsh'],
+    id: md5(location.pathname),
+    distractionFreeMode: true
+  })
+  gitalk.render('comments')
+  </script>
 
-
+      
 
 
 
